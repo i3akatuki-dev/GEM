@@ -1,0 +1,262 @@
+/* 大埃及博物馆 · 随身讲解 */
+:root{
+  --parchment:#F5E8C8;
+  --parchment-2:#EFDDBA;
+  --paper:#FBF3E2;
+  --bronze:#C9A227;
+  --bronze-dark:#9C7C15;
+  --ink:#3B2A1A;
+  --ink-2:#6B5741;
+  --ink-3:#94795C;
+  --teal:#1F7A8C;
+  --line:rgba(59,42,26,.12);
+  --shadow:0 2px 10px rgba(59,42,26,.08);
+  --safe-t:env(safe-area-inset-top,0px);
+  --safe-b:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--parchment);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Heiti SC",sans-serif;
+  font-size:16px;line-height:1.65;
+  overscroll-behavior-y:none;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+[hidden]{display:none!important}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer}
+input{font:inherit}
+
+.app{min-height:100dvh;display:flex;flex-direction:column}
+
+/* ---------- 顶栏 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:20;
+  padding:calc(var(--safe-t) + 8px) 14px 10px;
+  background:rgba(245,232,200,.94);
+  -webkit-backdrop-filter:saturate(180%) blur(12px);
+  backdrop-filter:saturate(180%) blur(12px);
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:10px;min-height:52px;
+}
+.topbar .back{
+  display:flex;align-items:center;gap:4px;
+  color:var(--bronze-dark);font-size:15px;font-weight:600;
+  margin-left:-4px;padding:4px 4px;
+}
+.topbar .back svg{width:20px;height:20px}
+.topbar .ttl{
+  flex:1;min-width:0;text-align:center;
+  font-size:16px;font-weight:600;letter-spacing:.02em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.topbar .ttl small{display:block;font-size:11px;font-weight:400;color:var(--ink-3);letter-spacing:.08em;margin-top:-2px}
+.topbar .spacer{width:44px;flex:none}
+
+main{flex:1;padding-bottom:calc(var(--safe-b) + 28px)}
+
+/* ---------- 首页 ---------- */
+.hero{padding:15px 20px 4px;text-align:center}
+.hero .kicker{
+  font-size:11px;letter-spacing:.34em;color:var(--bronze-dark);
+  text-transform:uppercase;margin-bottom:8px;
+}
+.hero h1{
+  font-family:"Songti SC","STSong",serif;
+  font-size:26px;line-height:1.3;margin:0 0 9px;font-weight:700;
+  letter-spacing:.02em;
+}
+.hero h1 em{font-style:normal;color:var(--bronze-dark)}
+.hero p{margin:0 auto;max-width:19em;font-size:13.5px;color:var(--ink-2);line-height:1.7}
+
+.searchwrap{padding:18px 16px 8px;position:sticky;top:52px;z-index:15;background:linear-gradient(var(--parchment) 76%,rgba(245,232,200,0))}
+.search{
+  display:flex;align-items:center;gap:9px;
+  background:var(--paper);border:1px solid var(--line);border-radius:14px;
+  padding:11px 13px;box-shadow:var(--shadow);
+}
+.search svg{width:18px;height:18px;flex:none;color:var(--ink-3)}
+.search input{
+  flex:1;min-width:0;border:0;background:none;outline:none;
+  font-size:16px;color:var(--ink);
+}
+.search input::placeholder{color:var(--ink-3)}
+.search .clear{color:var(--ink-3);font-size:20px;line-height:1;padding:0 2px}
+
+.section{padding:10px 16px 4px}
+.section h2{
+  font-size:12px;letter-spacing:.2em;color:var(--ink-3);
+  font-weight:600;margin:16px 4px 10px;
+}
+
+.gal-grid{display:flex;flex-direction:column;gap:10px;padding:4px 16px 6px}
+.gal-card{
+  display:flex;align-items:center;gap:13px;
+  background:var(--paper);border:1px solid var(--line);border-radius:16px;
+  padding:14px 15px;box-shadow:var(--shadow);
+  transition:transform .12s ease;
+}
+.gal-card:active{transform:scale(.985)}
+.gal-card .glyph{
+  width:44px;height:44px;flex:none;border-radius:12px;
+  display:grid;place-items:center;
+  background:linear-gradient(160deg,#F7EAC9,#E8D2A1);
+  color:var(--bronze-dark);
+  font-family:"Songti SC",serif;font-size:19px;font-weight:700;
+  border:1px solid rgba(201,162,39,.35);
+}
+.gal-card .gi{flex:1;min-width:0}
+.gal-card .gi b{display:block;font-size:16px;font-weight:600;letter-spacing:.01em}
+.gal-card .gi span{display:block;font-size:11.5px;color:var(--ink-3);letter-spacing:.06em;margin-top:1px;text-transform:uppercase}
+.gal-card .cnt{font-size:12.5px;color:var(--bronze-dark);font-weight:600;white-space:nowrap}
+.gal-card .cnt i{font-style:normal;color:var(--ink-3);font-weight:400;font-size:11px}
+
+/* ---------- 列表 ---------- */
+.list{padding:6px 12px 10px}
+.row{
+  display:flex;align-items:center;gap:12px;
+  padding:9px 8px;border-radius:14px;
+}
+.row:active{background:rgba(59,42,26,.05)}
+.row .th{
+  width:62px;height:62px;flex:none;border-radius:11px;overflow:hidden;
+  background:linear-gradient(150deg,#EADFC4,#DCC79A);
+  position:relative;
+}
+.row .th img{width:100%;height:100%;object-fit:cover}
+.row .th .ph{
+  position:absolute;inset:0;display:grid;place-items:center;
+  color:rgba(59,42,26,.32);font-family:"Songti SC",serif;font-size:20px;
+}
+.row .ri{flex:1;min-width:0}
+.row .ri b{display:block;font-size:15.5px;font-weight:600;line-height:1.35;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row .ri small{display:block;font-size:11.5px;color:var(--ink-3);margin-top:2px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row .no{
+  font-size:10.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;
+  border:1px solid var(--line);border-radius:7px;padding:1px 5px;flex:none;
+}
+.row .star{color:var(--bronze);font-size:13px;margin-left:4px}
+
+/* ---------- 详情 ---------- */
+.detail{padding-bottom:20px}
+.figure{
+  position:relative;background:#241a10;
+  margin:0;overflow:hidden;
+}
+.figure img{
+  width:100%;height:auto;max-height:62dvh;object-fit:contain;
+  background:#241a10;
+}
+.figure .dots{
+  position:absolute;left:0;right:0;bottom:8px;
+  display:flex;justify-content:center;gap:5px;
+}
+.figure .dots i{
+  width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.42);
+}
+.figure .dots i.on{background:#fff}
+.figure .zoom{
+  position:absolute;right:10px;bottom:8px;color:rgba(255,255,255,.8);
+  font-size:11px;letter-spacing:.04em;
+  background:rgba(0,0,0,.35);padding:3px 8px;border-radius:9px;
+}
+
+.dhead{padding:16px 18px 0}
+.dhead .no-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;color:var(--bronze-dark);letter-spacing:.05em;
+  border:1px solid rgba(201,162,39,.5);border-radius:8px;
+  padding:2px 8px;margin-bottom:9px;
+  font-variant-numeric:tabular-nums;
+}
+.dhead .no-badge b{font-size:12px}
+.dhead h1{
+  font-family:"Songti SC","STSong",serif;
+  font-size:24px;line-height:1.34;margin:0 0 5px;font-weight:700;letter-spacing:.01em;
+}
+.dhead .en{
+  font-size:12.5px;color:var(--ink-3);font-style:italic;line-height:1.5;margin-bottom:14px;
+}
+
+.chips{display:flex;flex-wrap:wrap;gap:7px;padding:0 18px 4px}
+.chip{
+  font-size:12px;line-height:1.5;color:var(--ink-2);
+  background:rgba(201,162,39,.09);border:1px solid rgba(201,162,39,.24);
+  border-radius:9px;padding:4px 9px;
+}
+.chip b{color:var(--bronze-dark);font-weight:600;margin-right:3px}
+
+.body{padding:16px 20px 6px}
+.body p{
+  margin:0 0 15px;font-size:16px;line-height:1.92;
+  color:#3a2b1d;text-align:justify;
+}
+.body p:first-child{color:#2c2114}
+.body .lead{font-weight:600}
+
+.pager{
+  display:flex;gap:10px;padding:10px 16px 4px;margin-top:6px;
+  border-top:1px solid var(--line);
+}
+.pager a{
+  flex:1;min-width:0;background:var(--paper);border:1px solid var(--line);
+  border-radius:13px;padding:10px 12px;box-shadow:var(--shadow);
+}
+.pager a span{display:block;font-size:10.5px;color:var(--ink-3);letter-spacing:.1em;margin-bottom:3px}
+.pager a b{display:block;font-size:13.5px;font-weight:600;line-height:1.35;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pager a.next{text-align:right}
+
+/* ---------- 关于 ---------- */
+.about{padding:22px 20px}
+.about h1{font-family:"Songti SC",serif;font-size:23px;margin:0 0 16px}
+.about h2{font-size:13px;letter-spacing:.14em;color:var(--bronze-dark);margin:22px 0 8px}
+.about p{font-size:14px;line-height:1.85;color:var(--ink-2);margin:0 0 11px}
+.about .box{
+  background:var(--paper);border:1px solid var(--line);border-radius:14px;
+  padding:14px 15px;box-shadow:var(--shadow);margin:12px 0;
+}
+.about .note{font-size:12px;color:var(--ink-3);line-height:1.7}
+.btn{
+  display:block;width:100%;text-align:center;
+  background:var(--bronze);color:#fff;font-weight:600;font-size:15px;
+  border-radius:12px;padding:12px;margin:10px 0 6px;
+}
+.btn.ghost{background:none;color:var(--bronze-dark);border:1px solid rgba(201,162,39,.5)}
+.btn[disabled]{opacity:.55}
+.progress{height:5px;border-radius:3px;background:rgba(59,42,26,.1);overflow:hidden;margin:10px 0 4px}
+.progress i{display:block;height:100%;width:0;background:var(--bronze);transition:width .2s}
+
+/* ---------- 空态 ---------- */
+.empty{padding:48px 24px;text-align:center;color:var(--ink-3);font-size:14px}
+.empty b{display:block;font-size:15px;color:var(--ink-2);margin-bottom:6px}
+
+/* ---------- 全屏图 ---------- */
+.lightbox{
+  position:fixed;inset:0;z-index:60;background:#0e0a06;
+  display:flex;align-items:center;justify-content:center;
+  touch-action:pan-y;
+}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain}
+.lightbox .close{
+  position:absolute;top:calc(var(--safe-t) + 10px);right:14px;
+  width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.14);
+  color:#fff;display:grid;place-items:center;font-size:19px;
+}
+
+/* ---------- 提示条 ---------- */
+.toast{
+  position:fixed;left:50%;bottom:calc(var(--safe-b) + 22px);transform:translateX(-50%);
+  background:rgba(30,20,12,.92);color:#fff;font-size:13px;
+  padding:9px 16px;border-radius:11px;z-index:80;
+  max-width:82vw;text-align:center;line-height:1.5;
+}
+
+.fade{animation:fade .22s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}

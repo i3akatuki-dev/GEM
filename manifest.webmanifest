@@ -1,0 +1,18 @@
+{
+  "name": "大埃及博物馆 · 随身讲解",
+  "short_name": "讲解",
+  "description": "大埃及博物馆 173 件馆藏的中文讲解，可离线使用。",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F5E8C8",
+  "theme_color": "#F5E8C8",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-1024.png", "sizes": "1024x1024", "type": "image/png" }
+  ]
+}
