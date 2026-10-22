@@ -1,6 +1,6 @@
 /* 自动生成，请勿手改：见 tools/build_gem_sw.py */
-var SHELL_CACHE = 'gem-shell-cc2fe64baa';
-var IMG_CACHE = 'gem-img-cc2fe64baa';
+var SHELL_CACHE = 'gem-shell-64fcd2e1ac';
+var IMG_CACHE = 'gem-img-64fcd2e1ac';
 var SHELL = [
   'index.html',
   'css/style.css',
